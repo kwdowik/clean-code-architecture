@@ -1,0 +1,15 @@
+module.export = {
+  presets: [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": true
+        }
+      }
+    ]
+  ],
+  plugins: [
+    "inline-dotenv"
+  ]
+}
