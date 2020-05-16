@@ -1,4 +1,4 @@
-export default function buildMakeScore({ Id }) {
+export default function buildMakeScore({ Id, md5 }) {
   return function makeScore({
     user,
     id = Id.makeId(),
@@ -23,10 +23,12 @@ export default function buildMakeScore({ Id }) {
     if (!teamId) {
       throw new Error('Score must contain a teamId.')
     }
+    let hash
 
     return Object.freeze({
       getUser: () => user,
       getId: () => id,
+      getHash: () => hash || (hash = makeHash()),
       getCreatedOn: () => createdOn,
       getModifiedOn: () => modifiedOn,
       getCategoryId: () => categoryId,
@@ -38,5 +40,13 @@ export default function buildMakeScore({ Id }) {
         }
       }
     });
+
+    function makeHash () {
+      return md5(
+          (user || '') +
+          (teamId || '') +
+          (categoryId || '')
+      )
+    }
   }
 }
