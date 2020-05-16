@@ -1,7 +1,7 @@
 import makeScore from '../score';
+
 export default function makeAddScore({ scoresDb }) {
   return async function addScore(scoreInfo) {
-    console.log(scoreInfo)
     const score = makeScore(scoreInfo);
     const exists = await scoresDb.findByHash({ hash: score.getHash() })
     if (exists) {
@@ -18,6 +18,5 @@ export default function makeAddScore({ scoresDb }) {
       categoryId: score.getCategoryId(),
       points: score.getPoints(),
     })
-    
   }
-}
+};
