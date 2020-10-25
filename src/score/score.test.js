@@ -20,25 +20,25 @@ describe('score', () => {
   })
   it('should has points set to 0 by default', () => {
     const score = makeFakeScore()
-    expect(makeScore(score).getPoints()).toBe(0);
+    expect(makeScore(score).getPoints()).toBe(0)
   })
   it('can increase points', () => {
     const fakeScore = makeFakeScore()
-    const score = makeScore(fakeScore);
-    score.setPoints(10);
-    expect(score.getPoints()).toBe(10);
+    const score = makeScore(fakeScore)
+    score.setPoints(10)
+    expect(score.getPoints()).toBe(10)
   })
   it('can decrease points', () => {
     const fakeScore = makeFakeScore()
-    const score = makeScore(fakeScore);
-    score.setPoints(10);
-    score.setPoints(-5);
-    expect(score.getPoints()).toBe(5);
+    const score = makeScore(fakeScore)
+    score.setPoints(10)
+    score.setPoints(-5)
+    expect(score.getPoints()).toBe(5)
   })
   it('cannot decrease points below 0', () => {
     const fakeScore = makeFakeScore()
-    const score = makeScore(fakeScore);
-    score.setPoints(-5);
-    expect(score.getPoints()).toBe(0);
+    const score = makeScore(fakeScore)
+    score.setPoints(-5)
+    expect(score.getPoints()).toBe(0)
   })
-});
+})

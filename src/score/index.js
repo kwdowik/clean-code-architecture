@@ -1,6 +1,6 @@
-import buildMakeScore from './score';
+import buildMakeScore from './score'
 import Id from '../id'
-import crypto from 'crypto';
+import crypto from 'crypto'
 
 const makeScore = buildMakeScore({ Id, md5 })
 

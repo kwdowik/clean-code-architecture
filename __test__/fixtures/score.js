@@ -22,7 +22,7 @@ export default function makeFakeScore (overrides) {
     modifiedOn: Date.now(),
     categoryId: Id.makeId(),
     teamId: Id.makeId(),
-    points: 0,
+    points: 0
   }
 
   score.hash = md5(
