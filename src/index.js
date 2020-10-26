@@ -7,24 +7,25 @@ import {
   getScores
 } from './controllers'
 import makeCallback from './express-callback'
+import cors from 'cors'
 
 dotenv.config()
 
-const apiRoot = process.env.DM_API_ROOT
 const app = express()
 app.use(bodyParser.json())
+app.use(cors())
 // TODO: figure out DNT compliance.
 app.use((_, res, next) => {
   res.set({ Tk: '!' })
   next()
 })
-app.post(`${apiRoot}/scores`, makeCallback(postScore))
-app.get(`${apiRoot}/scores`, makeCallback(getScores))
+app.post('/scores', makeCallback(postScore))
+app.get('/scores', makeCallback(getScores))
 app.use(makeCallback(notFound))
 
 // listen for requests
-app.listen(3000, () => {
-  console.log('Server is listening on port 3000')
+app.listen(process.env.API_PORT, () => {
+  console.log(`Server is listening on port ${process.env.API_PORT}`)
 })
 
 export default app
