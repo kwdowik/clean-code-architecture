@@ -1,4 +1,4 @@
-import Id from '../Id'
+import Id from '../entities/id'
 
 const COLLECTION_NAME = 'scores'
 

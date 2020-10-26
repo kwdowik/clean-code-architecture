@@ -5,7 +5,7 @@ import { seedDb } from '../data-access/seeder'
 
 const addScore = makeAddScore({ scoresDb })
 const listScores = makeListScores({ scoresDb })
-seedDb({ scoresDb })
+seedDb({ scoresDb, amount: 3 })
 
 const scoreService = Object.freeze({
   addScore,
