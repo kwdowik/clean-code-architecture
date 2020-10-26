@@ -9,7 +9,8 @@
     "db": "babel-node ./db/index.js",
     "dev": "nodemon --exec babel-node ./src/index.js",
     "start": "npm run clean && npm run build && npm run db && cd dist && node index.js",
-    "test": "jest src"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
