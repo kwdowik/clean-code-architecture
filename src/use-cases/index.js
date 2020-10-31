@@ -1,17 +1,18 @@
 import makeAddScore from './add-score'
 import makeListScores from './list-scores'
-import scoresDb from '../data-access'
-import { seedDb } from '../data-access/seeder'
+import makeListTeams from './list-teams'
+import { scoresDb, teamsDb } from '../data-access'
 
 const addScore = makeAddScore({ scoresDb })
 const listScores = makeListScores({ scoresDb })
-seedDb({ scoresDb, amount: 3 })
+const listTeams = makeListTeams({ teamsDb })
 
 const scoreService = Object.freeze({
   addScore,
-  listScores
+  listScores,
+  listTeams
 })
 
 export default scoreService
 
-export { addScore, listScores }
+export { addScore, listScores, listTeams }
