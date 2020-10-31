@@ -26,7 +26,8 @@
     "verbose": false,
     "globalSetup": "./config/jest/jest-setup.js",
     "globalTeardown": "./config/jest/jest-teardown.js",
-    "testEnvironment": "./config/jest/jest-mongo.js"
+    "testEnvironment": "./config/jest/jest-mongo.js",
+    "roots": ["src"]
   },
   "dependencies": {
     "axios": "^0.18.0",
