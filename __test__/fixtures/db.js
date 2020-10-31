@@ -21,6 +21,7 @@ export async function closeDb () {
 
 export async function clearDb () {
   await db.collection('scores').deleteMany({})
+  await db.collection('teams').deleteMany({})
   return true
 }
 
