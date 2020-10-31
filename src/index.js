@@ -4,7 +4,8 @@ import dotenv from 'dotenv'
 import {
   notFound,
   postScore,
-  getScores
+  getScores,
+  getTeams
 } from './controllers'
 import makeCallback from './express-callback'
 import cors from 'cors'
@@ -21,6 +22,7 @@ app.use((_, res, next) => {
 })
 app.post('/scores', makeCallback(postScore))
 app.get('/scores', makeCallback(getScores))
+app.get('/teams', makeCallback(getTeams))
 app.use(makeCallback(notFound))
 
 // listen for requests
