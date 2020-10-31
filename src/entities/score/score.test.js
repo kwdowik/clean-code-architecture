@@ -1,4 +1,4 @@
-import makeFakeScore from '../../__test__/fixtures/score'
+import makeFakeScore from '../../../__test__/fixtures/score'
 import makeScore from './'
 
 describe('score', () => {

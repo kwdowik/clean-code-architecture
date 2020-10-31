@@ -12,7 +12,7 @@ describe('add score', () => {
   it('inserts scores in the database', async () => {
     const newScore = makeFakeScore()
     const addScore = makeAddScore({
-      scoresDb: scoresDb,
+      scoresDb: scoresDb
     })
     const inserted = await addScore(newScore)
     expect(inserted).toMatchObject(newScore)
@@ -20,10 +20,10 @@ describe('add score', () => {
   it('returns scores if already exists', async () => {
     const newScore = makeFakeScore()
     const addScore = makeAddScore({
-      scoresDb: scoresDb,
+      scoresDb: scoresDb
     })
     const fristScore = await addScore(newScore)
-    const secondScore = await addScore(newScore);
+    const secondScore = await addScore(newScore)
     expect(fristScore).toEqual(secondScore)
   })
 })

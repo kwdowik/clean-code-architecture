@@ -35,7 +35,7 @@ export default function makeScoresDb ({ makeDb }) {
   async function findByTeamId ({ teamId }) {
     const db = await makeDb()
     const query = { teamId: teamId }
-   
+
     const result = await db.collection(COLLECTION_NAME).find(query)
     return (await result.toArray()).map(({ _id: id, ...found }) => ({
       id,
@@ -45,7 +45,7 @@ export default function makeScoresDb ({ makeDb }) {
   async function findByCategoryId ({ categoryId }) {
     const db = await makeDb()
     const query = { categoryId: categoryId }
-   
+
     const result = await db.collection(COLLECTION_NAME).find(query)
     return (await result.toArray()).map(({ _id: id, ...found }) => ({
       id,

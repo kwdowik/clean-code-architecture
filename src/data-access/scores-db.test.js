@@ -2,7 +2,7 @@ import makeDb from '../../__test__/fixtures/db'
 import makeScoresDb from './scores-db'
 import makeFakeScore from '../../__test__/fixtures/score'
 
-describe.only('scores db', () => {
+describe('scores db', () => {
   let scoresDb
 
   beforeEach(async () => {
@@ -59,13 +59,13 @@ describe.only('scores db', () => {
 
     expect(
       (await scoresDb.findByCategoryId({
-        categoryId: scoreOnCategoryA.categoryId,
+        categoryId: scoreOnCategoryA.categoryId
       }))[0]
     ).toEqual(scoreOnCategoryA)
 
     expect(
       (await scoresDb.findByCategoryId({
-        categoryId: scoreOnCategoryB.categoryId,
+        categoryId: scoreOnCategoryB.categoryId
       }))[0]
     ).toEqual(scoreOnCategoryB)
   })
@@ -77,13 +77,13 @@ describe.only('scores db', () => {
 
     expect(
       (await scoresDb.findByTeamId({
-        teamId: scoreOnTeamA.teamId,
+        teamId: scoreOnTeamA.teamId
       }))[0]
     ).toEqual(scoreOnTeamA)
 
     expect(
       (await scoresDb.findByTeamId({
-        teamId: scoreOnTeamB.teamId,
+        teamId: scoreOnTeamB.teamId
       }))[0]
     ).toEqual(scoreOnTeamB)
   })
