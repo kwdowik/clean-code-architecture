@@ -1,4 +1,4 @@
-import makeScore from '../score'
+import makeScore from '../entities/score'
 
 export default function makeAddScore ({ scoresDb }) {
   return async function addScore (scoreInfo) {
