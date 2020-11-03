@@ -25,11 +25,9 @@
   },
   "homepage": "https://github.com/kwdowik/clean-code-architecture#readme",
   "jest": {
+    "preset": "@shelf/jest-mongodb",
     "verbose": false,
-    "globalSetup": "./config/jest/jest-setup.js",
-    "globalTeardown": "./config/jest/jest-teardown.js",
-    "testEnvironment": "./config/jest/jest-mongo.js",
-    "roots": ["src"]
+    "roots": [ "src" ]
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -46,6 +44,7 @@
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
+    "@shelf/jest-mongodb": "^1.2.3",
     "babel-jest": "^24.4.0",
     "dotenv": "^6.2.0",
     "eslint": "^5.15.1",
