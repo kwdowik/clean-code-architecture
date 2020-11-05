@@ -24,7 +24,11 @@ async function clearDb (db) {
 const scoresDb = makeScoresDb({ makeDb })
 const teamsDb = makeTeamsDb({ makeDb })
 
-if (process.env.ENVIRONMENT === 'DEVELOPMENT') {
+const {
+  ENVIRONMENT
+} = process.env
+
+if (ENVIRONMENT === 'DEVELOPMENT' || ENVIRONMENT === 'STAGING') {
   (async function () {
     const db = await makeDb()
     await clearDb(db)
