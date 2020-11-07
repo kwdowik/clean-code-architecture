@@ -28,7 +28,7 @@ const {
   ENVIRONMENT
 } = process.env
 
-if (ENVIRONMENT === 'DEVELOPMENT' || ENVIRONMENT === 'STAGING') {
+if (ENVIRONMENT === 'development' || ENVIRONMENT === 'staging') {
   (async function () {
     const db = await makeDb()
     await clearDb(db)
