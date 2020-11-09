@@ -8,7 +8,6 @@ describe('post score controller', () => {
     const request = {
       headers: {
         'Content-Type': 'application/json'
-        // 'User-Agent': score.source.browser
       },
       body: score
     }
@@ -33,7 +32,6 @@ describe('post score controller', () => {
     const request = {
       headers: {
         'Content-Type': 'application/json'
-        // 'User-Agent': fakeScore.source.browser
       },
       body: fakeScore
     }
