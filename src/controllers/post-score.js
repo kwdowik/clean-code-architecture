@@ -2,13 +2,13 @@ export default function makePostScore ({ addScore }) {
   return async function postScore (httpRequest) {
     try {
       const { source = {}, ...scoreInfo } = httpRequest.body
-      // source.ip = httpRequest.ip
-      // source.browser = httpRequest.headers['User-Agent']
-      // if (httpRequest.headers['Referer']) {
-      //   source.referrer = httpRequest.headers['Referer']
-      // }
+      source.ip = httpRequest.ip
+      source.browser = httpRequest.headers['User-Agent']
+      if (httpRequest.headers['Referer']) {
+        source.referrer = httpRequest.headers['Referer']
+      }
       const posted = await addScore({
-        ...scoreInfo,
+        ...scoreInfo
       })
       return {
         headers: {

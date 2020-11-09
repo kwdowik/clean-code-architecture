@@ -14,25 +14,18 @@ function md5 (text) {
     .digest('hex')
 }
 
-export default function makeFakeScore (overrides) {
-  const score = {
-    user: faker.name.findName(),
+export default function makeFakeTeam (overrides) {
+  const team = {
+    name: faker.name.findName(),
     createdOn: Date.now(),
     id: Id.makeId(),
-    modifiedOn: Date.now(),
-    categoryId: Id.makeId(),
-    teamId: Id.makeId(),
-    points: 0
+    modifiedOn: Date.now()
   }
 
-  score.hash = md5(
-    (score.user || '') +
-    (score.teamId || '') +
-    (score.categoryId || '')
-  )
+  team.hash = md5(team.name || '')
 
   return {
-    ...score,
+    ...team,
     ...overrides
   }
 }

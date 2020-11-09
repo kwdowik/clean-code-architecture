@@ -18,4 +18,8 @@ node_modules/
 .env
 
 #in memory mongo
-mongoConfig.json
+globalConfig.json
+
+# docker
+.DS_Store
+data

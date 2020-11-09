@@ -7,10 +7,9 @@ describe('post score controller', () => {
     const score = makeFakeScore()
     const request = {
       headers: {
-        'Content-Type': 'application/json',
-        // 'User-Agent': score.source.browser
+        'Content-Type': 'application/json'
       },
-      body: score,
+      body: score
     }
     const expected = {
       headers: {
@@ -32,8 +31,7 @@ describe('post score controller', () => {
     const fakeScore = makeFakeScore()
     const request = {
       headers: {
-        'Content-Type': 'application/json',
-        // 'User-Agent': fakeScore.source.browser
+        'Content-Type': 'application/json'
       },
       body: fakeScore
     }

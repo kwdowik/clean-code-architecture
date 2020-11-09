@@ -1,7 +1,7 @@
 import makeListScores from './list-scores'
 import makeScoresDb from '../data-access/scores-db'
 import makeFakeScore from '../../__test__/fixtures/score'
-import makeDb, { clearDb } from '../../__test__/fixtures/db'
+import makeDb, { closeDb, clearDb } from '../../__test__/fixtures/db'
 
 describe('list scores', () => {
   let scoresDb
@@ -11,15 +11,19 @@ describe('list scores', () => {
     scoresDb = makeScoresDb({ makeDb })
   })
 
+  afterAll(async () => {
+    await closeDb()
+  })
+
   it('find all scores from the database', async () => {
-    const newScore1 = makeFakeScore();
-    const newScore2 = makeFakeScore();
-    await scoresDb.insert(newScore1);
-    await scoresDb.insert(newScore2);
+    const newScore1 = makeFakeScore()
+    const newScore2 = makeFakeScore()
+    await scoresDb.insert(newScore1)
+    await scoresDb.insert(newScore2)
     const listScores = makeListScores({
-      scoresDb: scoresDb,
+      scoresDb: scoresDb
     })
-    const scores = await listScores();
+    const scores = await listScores()
     expect(scores.length).toBe(2)
     expect(scores).toEqual([newScore1, newScore2])
   })
