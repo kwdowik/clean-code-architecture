@@ -4,18 +4,17 @@ const MongoClient = mongodb.MongoClient
 let connection, db
 
 export default async function makeDb () {
-  connection =
+  connection = connection ||
     await MongoClient.connect(
       global.__MONGO_URI__,
       { useNewUrlParser: true, useUnifiedTopology: true }
     )
-  db = await connection.db(global.__MONGO_DB_NAME__)
+  db = db || await connection.db(global.__MONGO_DB_NAME__)
   return db
 }
 
 export async function closeDb () {
   await connection.close()
-  await db.close()
 }
 
 export async function clearDb () {

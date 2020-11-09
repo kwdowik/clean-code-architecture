@@ -1,7 +1,7 @@
 import makeListScores from './list-scores'
 import makeScoresDb from '../data-access/scores-db'
 import makeFakeScore from '../../__test__/fixtures/score'
-import makeDb, { clearDb } from '../../__test__/fixtures/db'
+import makeDb, { closeDb, clearDb } from '../../__test__/fixtures/db'
 
 describe('list scores', () => {
   let scoresDb
@@ -9,6 +9,10 @@ describe('list scores', () => {
     await makeDb()
     await clearDb()
     scoresDb = makeScoresDb({ makeDb })
+  })
+
+  afterAll(async () => {
+    await closeDb()
   })
 
   it('find all scores from the database', async () => {

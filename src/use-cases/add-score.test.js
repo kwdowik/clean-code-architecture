@@ -1,12 +1,18 @@
 import makeAddScore from './add-score'
 import makeScoresDb from '../data-access/scores-db'
 import makeFakeScore from '../../__test__/fixtures/score'
-import makeDb from '../../__test__/fixtures/db'
+import makeDb, { closeDb, clearDb } from '../../__test__/fixtures/db'
 
 describe('add score', () => {
   let scoresDb
-  beforeAll(() => {
+  beforeAll(async () => {
+    await makeDb()
+    await clearDb()
     scoresDb = makeScoresDb({ makeDb })
+  })
+
+  afterAll(async () => {
+    await closeDb()
   })
 
   it('inserts scores in the database', async () => {

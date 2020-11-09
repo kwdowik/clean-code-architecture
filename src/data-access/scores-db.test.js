@@ -1,12 +1,18 @@
-import makeDb from '../../__test__/fixtures/db'
+import makeDb, { closeDb, clearDb } from '../../__test__/fixtures/db'
 import makeScoresDb from './scores-db'
 import makeFakeScore from '../../__test__/fixtures/score'
 
 describe('scores db', () => {
   let scoresDb
 
-  beforeEach(async () => {
+  beforeAll(async () => {
+    await makeDb()
+    await clearDb()
     scoresDb = makeScoresDb({ makeDb })
+  })
+
+  afterAll(async () => {
+    await closeDb()
   })
 
   it('lists scores', async () => {

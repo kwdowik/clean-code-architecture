@@ -1,4 +1,4 @@
-import makeDb, { clearDb } from '../../__test__/fixtures/db'
+import makeDb, { clearDb, closeDb } from '../../__test__/fixtures/db'
 import makeTeamsDb from '../data-access/teams-db'
 import makeFakeTeam from '../../__test__/fixtures/team'
 import makeListScores from './list-teams'
@@ -9,6 +9,10 @@ describe('list teams', () => {
     await makeDb()
     await clearDb()
     teamsDb = makeTeamsDb({ makeDb })
+  })
+
+  afterAll(async () => {
+    await closeDb()
   })
 
   it('find all teams from database', async () => {
